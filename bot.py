@@ -26,7 +26,6 @@ from telegram.ext import (
     MessageHandler,
     ContextTypes,
     filters,
-    ChatMemberHandler,
 )
 from config import BOT_TOKEN, ADMIN_ID
 from plugins.function import start
@@ -45,7 +44,6 @@ async def help_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/warn - Tag a user or use /warn @username to warn them\n"
         "Users will be banned after 3 warnings."
     )
-
 
 def main():
     try:
@@ -76,6 +74,5 @@ def main():
         sys.exit(1)
 
 if __name__ == "__main__":
-    # Run Flask server in background for Render/Heroku
     threading.Thread(target=run_server).start()
     main()
