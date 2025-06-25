@@ -2,22 +2,15 @@
 
 ![Bot](./welcome3.webp) <!-- Replace with your actual image URL -->
 
-A powerful Telegram group management bot built using Python and `python-telegram-bot`. Manage your groups with ease using commands like mute, ban, welcome messages, and more.
+A powerful Telegram group management bot built using Python and `python-telegram-bot`. This bot automatically delete joint, left, vc on, vc off, badwords.
 
 ---
 
 ## Features
 
 - **/start** – Start the bot and verify it’s working.
-- **/mute @user** – Mute a user from sending messages.
-- **/unmute @user** – Unmute a previously muted user.
-- **/warn @user** – Issue a warning. After 3 warnings, user gets auto-banned.
-- **/ban @user** – Permanently ban a user from the group.
-- **/unban user_id** – Unban a previously banned user by their ID.
-- **Custom Welcome Messages** – Send a welcome message when a new user joins.
-- **Custom Goodbye Messages** – Send a farewell message when a user leaves.
-- **/broadcast <message>** – Send a message to all groups where the bot is present.
-
+- **/addword word** – To add badwords in database.
+- **/badwords** – To see all badwords.
 ---
 
 ## How to Use
