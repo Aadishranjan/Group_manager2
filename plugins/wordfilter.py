@@ -1,3 +1,4 @@
+import re
 from telegram import Update
 from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters
 from database.badwords_db import add_bad_word, get_bad_words
@@ -9,15 +10,20 @@ async def filter_bad_words(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message
     if not msg or not msg.text:
         return
+
     chat_id = msg.chat.id
     msg_text = msg.text.lower()
     words = get_bad_words(chat_id)
 
-    if any(word in msg_text for word in words):
+    # Create a regex pattern that matches full words only
+    pattern = r"\b(" + "|".join(re.escape(word.lower()) for word in words) + r")\b"
+
+    if re.search(pattern, msg_text):
         try:
             await msg.delete()
         except:
             pass
+
 
 # Add a word (only bot owner)
 async def addword(update: Update, context: ContextTypes.DEFAULT_TYPE):
