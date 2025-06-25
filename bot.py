@@ -38,13 +38,8 @@ async def help_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.message.reply_text(
         "Available commands:\n"
         "/start - Start the bot\n"
-        "/broadcast - Only bot admin is allowed\n"
-        "/ban - Ban a user\n"
-        "/unban - Unban a user\n"
-        "/mute - Mute a user\n"
-        "/unmute - Unmute a user\n"
-        "/warn - Tag a user or use /warn @username to warn them\n"
-        "Users will be banned after 3 warnings."
+        "/addword - To add word in badword list\n"
+        "/badwords - To see all words in badwords list"
     )
 
 def main():
