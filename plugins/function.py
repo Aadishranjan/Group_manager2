@@ -23,15 +23,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "👋 **Welcome to Group Manager Bot!**\n\n"
         "I can help you manage your Telegram groups with features like:\n"
         "• Auto-moderation\n"
-        "• Welcome messages\n"
-        "• Anti-link protection\n"
-        "• Mute, ban, warn system\n\n"
+        "• Auto delete join and left message\n"
+        "• Auto delete vc on off message\n\n"
         "🤖 Developed and managed by [Aadish](https://t.me/aadish555)\n"
     )
 
     keyboard = InlineKeyboardMarkup([
         [InlineKeyboardButton("➕ Add Me To Your Group", url=f"https://t.me/{context.bot.username}?startgroup=true")],
-        [InlineKeyboardButton("📚 Help Command", callback_data="help_command")]
     ])
 
     try:
