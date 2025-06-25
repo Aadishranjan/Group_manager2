@@ -30,6 +30,8 @@ from telegram.ext import (
 from config import BOT_TOKEN, ADMIN_ID
 from plugins.function import start
 from plugins.cleanservices import delete_service_messages
+from plugins.wordfilter import addword, badwords, filter_bad_words
+
 
 async def help_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.answer()
@@ -55,6 +57,9 @@ def main():
         app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, delete_service_messages))
         app.add_handler(MessageHandler(filters.StatusUpdate.VIDEO_CHAT_STARTED, delete_service_messages))
         app.add_handler(MessageHandler(filters.StatusUpdate.VIDEO_CHAT_ENDED, delete_service_messages))
+        app.add_handler(CommandHandler("addword", addword))
+        app.add_handler(CommandHandler("badwords", badwords))
+        app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, filter_bad_words))
 
         print("✅ Bot is running...")
         app.run_polling()

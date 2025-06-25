@@ -8,6 +8,7 @@ db = client["group_manager"]
 broadcast_collection = db["broadcast"]
 users_collection = db["users"]
 warn_collection = db["warn"]
+bad_words_collection = db["bad_words"]
 
 
 # Save chat (for private or group)
